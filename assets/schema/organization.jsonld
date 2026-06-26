@@ -1,0 +1,22 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ORG_NAME}}",
+  "url": "{{SITE_URL}}",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "{{SITE_URL}}/{{LOGO_PATH}}"
+  },
+  "description": "{{ORG_DESCRIPTION}}",
+  "sameAs": [
+    "{{SOCIAL_PROFILE_URL_1}}",
+    "{{SOCIAL_PROFILE_URL_2}}"
+  ]
+}
+</script>
+<!--
+Place once, site-wide, inside <head> (e.g. in the shared layout/head component).
+Fill every {{PLACEHOLDER}} with real values. Remove sameAs lines you don't have.
+Do not include profiles or facts the site can't back up. Remove this comment in the final output.
+-->

@@ -1,0 +1,16 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# Local secrets — never commit to a public repo (defensive, in case of forks/experiments)
+.env
+.env.*
+*.local
+
+# Logs
+*.log

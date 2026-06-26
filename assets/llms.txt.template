@@ -1,0 +1,24 @@
+# {{SITE_NAME}}
+
+> {{ONE_TO_THREE_SENTENCE_SUMMARY}}
+> Say what the site is, who it serves, and what an AI can accomplish by reading these pages.
+
+## {{SECTION_NAME}}
+
+- [{{PAGE_TITLE}}]({{SITE_URL}}/{{PAGE_PATH}}): {{ONE_SENTENCE_DESCRIPTION}}
+- [{{PAGE_TITLE}}]({{SITE_URL}}/{{PAGE_PATH}}): {{ONE_SENTENCE_DESCRIPTION}}
+
+## {{ANOTHER_SECTION_NAME}}
+
+- [{{PAGE_TITLE}}]({{SITE_URL}}/{{PAGE_PATH}}): {{ONE_SENTENCE_DESCRIPTION}}
+
+<!--
+FILL RULES (delete this comment in the final file):
+- One H1 only: the site/brand name.
+- Blockquote summary: 2-3 sentences, accurate, no marketing fluff.
+- 2-6 H2 sections grouping the 5-10 most useful, real pages.
+- Every link: a REAL absolute URL + a true one-sentence description.
+- No images, tables, code blocks, HTML, or nested headings.
+- Target ~3-4 KB total. Save at the web root so it serves at {{SITE_URL}}/llms.txt
+- HTML comments are NOT part of the spec — remove this block before saving.
+-->
