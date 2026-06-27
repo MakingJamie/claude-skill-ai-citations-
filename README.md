@@ -58,13 +58,19 @@ A typical session on an Astro blog hosted on Netlify:
 >
 > **You:** Retrieval, but not training.
 >
-> **Claude:** Auditing…
-> **AI Foundations Score: `[██████░░░░] 60%` — Solid start 🧭.** Astro already gives you a sitemap, canonical tags, meta descriptions and schema. What's missing: your `robots.txt` allows everything but names no AI bots, and there's no `llms.txt`. Here's the plan: a named-bot `robots.txt` (retrieval allowed, training disallowed) with `Sitemap:` and `llms-txt:` directives, plus an `llms.txt` built from your 8 best posts. This takes you to ~100%. Approve?
+> **Claude:** Auditing your repo…
+>
+> **AI Foundations Score: `[██████░░░░] 60%` — Solid start 🧭**
+> Astro already gives you a sitemap, canonical tags, meta descriptions and schema. What's missing: your `robots.txt` allows everything but names no AI bots, and there's no `llms.txt`.
+>
+> **Plan:** a named-bot `robots.txt` (retrieval allowed, training disallowed) with `Sitemap:` and `llms-txt:` directives, plus an `llms.txt` built from your 8 best posts. That takes you to ~100%. Approve?
 >
 > **You:** Go ahead.
 >
-> **Claude:** Done — wrote `public/robots.txt` and `public/llms.txt` and verified both resolve.
-> **Your AI Foundations Score: `60% → 100%` — Fully optimised 🎉.** After you deploy, confirm Netlify isn't overriding `robots.txt`.
+> **Claude:** Done — wrote `public/robots.txt` and `public/llms.txt`, and verified both resolve.
+>
+> **AI Foundations Score: `60% → 100%` — Fully optimised 🎉**
+> After you deploy, confirm Netlify isn't overriding `robots.txt`.
 
 **Before** — allows every crawler indiscriminately, with no explicit policy:
 
