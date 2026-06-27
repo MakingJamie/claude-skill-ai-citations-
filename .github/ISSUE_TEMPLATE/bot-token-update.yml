@@ -1,0 +1,62 @@
+name: AI bot token update
+description: Report a changed, new, or miscategorised AI crawler user-agent token.
+title: "[bot update] <token name>"
+labels: ["bot-token"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the AI bot reference current. Please link an
+        **official source** (the operator's crawler docs) so the change can be verified.
+  - type: input
+    id: token
+    attributes:
+      label: User-agent token
+      description: The exact token string.
+      placeholder: OAI-SearchBot
+    validations:
+      required: true
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Type of change
+      options:
+        - New bot (not currently listed)
+        - Renamed or deprecated token
+        - Wrong category (training vs retrieval)
+        - Other correction
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Correct category
+      options:
+        - Retrieval / answer (fetches pages to build cited answers)
+        - Training (collects content to train models)
+        - Search (traditional search index)
+        - Unsure
+    validations:
+      required: true
+  - type: input
+    id: operator
+    attributes:
+      label: Operator
+      description: The company that runs the bot.
+      placeholder: OpenAI, Anthropic, Google…
+    validations:
+      required: false
+  - type: textarea
+    id: source
+    attributes:
+      label: Official source
+      description: Link to the operator's documentation confirming this token and its behaviour.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+    validations:
+      required: false

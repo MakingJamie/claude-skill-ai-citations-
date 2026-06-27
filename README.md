@@ -20,6 +20,8 @@ It is deliberately **honest**: it won't promise citations, and it tells you whic
 
 ## Install
 
+New to Claude Code skills? See the [skills documentation](https://code.claude.com/docs/en/skills) — in short, a skill is a folder with a `SKILL.md` that Claude loads automatically when it's relevant.
+
 This is a standalone skill folder. Clone it into your Claude Code skills directory.
 The clone **target folder must be `ai-citation-foundations`** (it must match the skill's
 `name`), even though the repo is named `claude-skill-ai-citations-` — the commands below
@@ -45,6 +47,51 @@ Open Claude Code **in your website's repository**, then say something like:
 - "Get my site into ChatGPT and Perplexity"
 
 The skill runs a short, gated workflow: it interviews you, audits your repo, proposes a plan, and waits for your approval before writing any files.
+
+## Example run
+
+A typical session on an Astro blog hosted on Netlify:
+
+> **You:** Help AI cite my site
+>
+> **Claude:** This is an Astro project, so static files belong in `public/`. Quick context first — AI crawlers split into two jobs: *retrieval* bots (OAI-SearchBot, PerplexityBot, Claude-User) fetch your pages to build cited answers, while *training* bots (GPTBot, ClaudeBot, CCBot) collect content to train models. Which would you like to allow — both, retrieval only, or none?
+>
+> **You:** Retrieval, but not training.
+>
+> **Claude:** Auditing… your `public/robots.txt` allows everything but names no AI bots, and there's no `llms.txt`. Here's the plan: a named-bot `robots.txt` (retrieval allowed, training disallowed) with `Sitemap:` and `llms-txt:` directives, plus an `llms.txt` built from your 8 best posts. `@astrojs/sitemap` already covers the sitemap. Approve?
+>
+> **You:** Go ahead.
+>
+> **Claude:** Done — wrote `public/robots.txt` and `public/llms.txt` and verified both resolve. After you deploy, confirm Netlify isn't overriding `robots.txt`.
+
+**Before** — allows every crawler indiscriminately, with no explicit policy:
+
+```
+User-agent: *
+Allow: /
+```
+
+**After** — an intentional policy: retrieval bots welcomed, training bots opted out, sitemap and llms.txt advertised:
+
+```
+Sitemap: https://example.com/sitemap.xml
+llms-txt: https://example.com/llms.txt
+
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: *
+Allow: /
+```
 
 ## What it sets up
 
@@ -76,12 +123,17 @@ This skill builds the open, standard foundations every site should have. It does
 ## Structure
 
 ```
-ai-citation-foundations/
-├── SKILL.md            # the workflow Claude follows
-├── references/         # bot reference, robots patterns, llms.txt spec, schema, stack detection
-├── assets/             # robots.txt variants, llms.txt + JSON-LD templates
-└── scripts/
-    └── verify-foundations.sh
+ai-citation-foundations/         # clone target folder (repo: claude-skill-ai-citations-)
+├── SKILL.md                  # the gated workflow Claude follows
+├── README.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── references/               # bot reference, robots patterns, llms.txt spec, schema, stack detection
+├── assets/                   # robots.txt variants, llms.txt + JSON-LD templates
+├── scripts/
+│   └── verify-foundations.sh
+└── .github/
+    └── ISSUE_TEMPLATE/       # "AI bot token update" issue form
 ```
 
 ## License

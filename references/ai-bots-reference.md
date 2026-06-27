@@ -1,5 +1,7 @@
 # AI crawler reference — who's who, and what allowing or blocking each one does
 
+> **Last reviewed: 2026-06.** AI crawler tokens change over time — operators rename bots, split training from retrieval, and add new ones. Treat this as a dated snapshot; verify against the operator's official crawler docs when in doubt, and see `CONTRIBUTING.md` to report a change.
+
 Use this in **Phase 1** to educate the user before they choose a comfort level. Explain it in plain English first, then show the table if they want detail.
 
 ## The one distinction that matters
