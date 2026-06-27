@@ -45,12 +45,13 @@ This skill covers the **free, universal foundations** that every site should hav
 
 1. Read any existing `robots.txt`, `llms.txt`/`llms-full.txt`, sitemap config, `<head>`/meta, and JSON-LD.
 2. Produce a concrete gap list tied to citation impact. Examples: "No `llms.txt`." "`robots.txt` has `Disallow: /` under `User-agent: *` with no AI exceptions — this blocks PerplexityBot and OAI-SearchBot and removes you from their cited answers." "No canonical tags — AI may credit a duplicate URL." "No Article/Organization schema."
+3. Compute and present the **AI Foundations Score** — a 0–100% coverage meter — per `references/scoring.md`: render the 10-cell progress bar, the percentage and band label, and a one-line reason. **Record the baseline** for Phase 5. If the baseline is already **100%**, congratulate the user (their foundations are complete), offer only an optional re-verify, and skip the plan/implement phases.
 
-> **Gate:** A specific, prioritised gap list the user can see.
+> **Gate:** A specific, prioritised gap list and a baseline AI Foundations Score the user can see.
 
 ### Phase 3 — Plan
 
-Present a stack-specific plan covering only the gaps. For each item, state the exact file to add or change and mark it **Proven**, **Low-cost signal**, or **Experimental** (per `references/` guidance). Include: the chosen `robots.txt` pattern, an `llms.txt` drafted from the user's real pages, sitemap wiring for this stack, and applicable supporting signals (canonical, meta description, JSON-LD).
+Present a stack-specific plan covering only the gaps. For each item, state the exact file to add or change and mark it **Proven**, **Low-cost signal**, or **Experimental** (per `references/` guidance). Include: the chosen `robots.txt` pattern, an `llms.txt` drafted from the user's real pages, sitemap wiring for this stack, and applicable supporting signals (canonical, meta description, JSON-LD). Optionally note the score the plan is expected to reach as a motivator (e.g. "this takes you from 40% to ~100%").
 
 > **Gate:** The user explicitly approves before any file is written.
 
@@ -71,8 +72,9 @@ Present a stack-specific plan covering only the gaps. For each item, state the e
    - Changes take roughly 24 hours for major crawlers to pick up.
    - robots.txt is advisory — well-behaved crawlers honour it; others may not.
    - Re-run the verify script against the live URL after deploy.
+3. Recompute the **AI Foundations Score** and show the movement from the Phase 2 baseline as `before → after` (e.g. `40% → 100%`) with the new band line, per `references/scoring.md`. If it is now 100%, use the celebration copy.
 
-> **Gate:** Verification run and the checklist delivered.
+> **Gate:** Verification run, the score movement shown, and the checklist delivered.
 
 ## Honesty principle
 
@@ -87,6 +89,7 @@ Hold this line throughout: the **robots.txt AI policy is the load-bearing piece*
 | `references/robots-patterns.md` | Phase 3–4 — choose and assemble the robots.txt policy |
 | `references/llms-txt-spec.md` | Phase 3–4 — exact llms.txt format and caveats |
 | `references/schema-and-meta.md` | Phase 3–4 — JSON-LD, canonical, meta, semantic HTML |
+| `references/scoring.md` | Phase 2 & 5 — the AI Foundations Score rubric, bands, and bar |
 | `assets/` | Phase 4 — templates to fill (`{{PLACEHOLDER}}` markers) |
 | `scripts/verify-foundations.sh` | Phase 5 — confirm artifacts resolve and parse |
 

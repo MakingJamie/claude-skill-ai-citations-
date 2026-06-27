@@ -12,9 +12,9 @@ Point it at your website repo and it will:
 
 1. **Detect your stack** (Astro, Next, Nuxt, SvelteKit, Hugo, Jekyll, WordPress, plain HTML…).
 2. **Teach you** the difference between AI bots that *cite you* and AI bots that *train on you* — then let you choose your own comfort level.
-3. **Audit** what you already have and show the real gaps.
+3. **Audit & score** what you already have — an honest 0–100% *AI Foundations Score* — and show the real gaps.
 4. **Plan**, then (only with your approval) **implement** the foundations: a correct `robots.txt` AI-crawler policy, an `llms.txt`, sitemap wiring, canonical + meta tags, and Schema.org structured data.
-5. **Verify** the artifacts resolve and parse, and hand you a short post-deploy checklist.
+5. **Verify** the artifacts resolve and parse, show how far your score moved, and hand you a short post-deploy checklist.
 
 It is deliberately **honest**: it won't promise citations, and it tells you which signals are proven versus merely nice-to-have. It covers only the **standard, transparent** foundations — no cloaking, no serving different content to bots.
 
@@ -24,16 +24,16 @@ New to Claude Code skills? See the [skills documentation](https://code.claude.co
 
 This is a standalone skill folder. Clone it into your Claude Code skills directory.
 The clone **target folder must be `ai-citation-foundations`** (it must match the skill's
-`name`), even though the repo is named `claude-skill-ai-citations-` — the commands below
+`name`), even though the repo is named `claude-skill-ai-citations` — the commands below
 set that target explicitly:
 
 ```bash
 # User-level (available in every project)
-git clone https://github.com/MakingJamie/claude-skill-ai-citations-.git \
+git clone https://github.com/MakingJamie/claude-skill-ai-citations.git \
   ~/.claude/skills/ai-citation-foundations
 
 # …or project-level (this repo only)
-git clone https://github.com/MakingJamie/claude-skill-ai-citations-.git \
+git clone https://github.com/MakingJamie/claude-skill-ai-citations.git \
   /path/to/your/site/.claude/skills/ai-citation-foundations
 ```
 
@@ -58,11 +58,13 @@ A typical session on an Astro blog hosted on Netlify:
 >
 > **You:** Retrieval, but not training.
 >
-> **Claude:** Auditing… your `public/robots.txt` allows everything but names no AI bots, and there's no `llms.txt`. Here's the plan: a named-bot `robots.txt` (retrieval allowed, training disallowed) with `Sitemap:` and `llms-txt:` directives, plus an `llms.txt` built from your 8 best posts. `@astrojs/sitemap` already covers the sitemap. Approve?
+> **Claude:** Auditing…
+> **AI Foundations Score: `[██████░░░░] 60%` — Solid start 🧭.** Astro already gives you a sitemap, canonical tags, meta descriptions and schema. What's missing: your `robots.txt` allows everything but names no AI bots, and there's no `llms.txt`. Here's the plan: a named-bot `robots.txt` (retrieval allowed, training disallowed) with `Sitemap:` and `llms-txt:` directives, plus an `llms.txt` built from your 8 best posts. This takes you to ~100%. Approve?
 >
 > **You:** Go ahead.
 >
-> **Claude:** Done — wrote `public/robots.txt` and `public/llms.txt` and verified both resolve. After you deploy, confirm Netlify isn't overriding `robots.txt`.
+> **Claude:** Done — wrote `public/robots.txt` and `public/llms.txt` and verified both resolve.
+> **Your AI Foundations Score: `60% → 100%` — Fully optimised 🎉.** After you deploy, confirm Netlify isn't overriding `robots.txt`.
 
 **Before** — allows every crawler indiscriminately, with no explicit policy:
 
@@ -123,12 +125,12 @@ This skill builds the open, standard foundations every site should have. It does
 ## Structure
 
 ```
-ai-citation-foundations/         # clone target folder (repo: claude-skill-ai-citations-)
+ai-citation-foundations/         # clone target folder (repo: claude-skill-ai-citations)
 ├── SKILL.md                  # the gated workflow Claude follows
 ├── README.md
 ├── CONTRIBUTING.md
 ├── LICENSE
-├── references/               # bot reference, robots patterns, llms.txt spec, schema, stack detection
+├── references/               # bot reference, robots patterns, llms.txt spec, schema, stack detection, scoring
 ├── assets/                   # robots.txt variants, llms.txt + JSON-LD templates
 ├── scripts/
 │   └── verify-foundations.sh
