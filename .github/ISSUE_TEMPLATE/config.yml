@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions, feedback, or a hello
+    url: https://jamie-murphy.com
+    about: For anything that isn't a bug report or an AI bot-token update, reach out here.

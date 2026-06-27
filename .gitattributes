@@ -1,0 +1,5 @@
+# This repo is primarily a Markdown skill (SKILL.md + references) with a small shell
+# helper. GitHub Linguist classifies Markdown as "prose" and excludes it from the repo
+# language stats by default, which makes the repo misleadingly show up as "Shell".
+# Count Markdown so the language bar reflects what this repo actually is.
+*.md linguist-detectable=true
